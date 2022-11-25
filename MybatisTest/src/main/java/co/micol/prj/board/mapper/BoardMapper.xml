@@ -24,11 +24,14 @@
 	</select>
 	<insert id="replyInsert"
 		parameterType="co.micol.prj.board.vo.ReplyVO">
-		INSERT INTO TBL_REPLY(REPLY_NO, BOARD_NO, CONTENT, WRITER)
-		VALUES(reply_seq.nextval,#{boardNo},#{content},#{writer})
+		<selectKey keyProperty="replyNo" resultType="int" order="BEFORE">
+			SELECT REPLY_SEQ.NEXTVAL AS REPLYNO  FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_REPLY(REPLY_NO, BOARD_NO, CONTENT, WRITER, WRITE_DATE)
+		VALUES(#{replyNo},#{boardNo},#{content},#{writer},TO_DATE(#{writeDate},'yyyy-MM-dd HH24:mi:ss'))
 	</insert>
 	<delete id="replyDelete"
 		parameterType="co.micol.prj.board.vo.ReplyVO">
-		DELETE FROM TBL_REPLY WHERE REPLY_NO = #{replyNo};
+		DELETE FROM TBL_REPLY WHERE REPLY_NO = #{replyNo}
 	</delete>
 </mapper>

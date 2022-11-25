@@ -6,8 +6,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class ReplyVO {
-	private String replyNo;
-	private String boardNo;
+	private int replyNo;
+	private int boardNo;
 	private String content;
 	private String writer;
 	private String writeDate;
