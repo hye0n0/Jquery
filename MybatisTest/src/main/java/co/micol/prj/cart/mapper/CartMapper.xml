@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.cart.mapper.CartMapper">
+	<select id="cartSelectList" resultType="HashMap">
+		SELECT * FROM CART ORDER
+		BY NO DESC
+	</select>
+	<delete id="cartDelete">
+		DELETE FROM CART WHERE NO = #{no}
+	</delete>
+	<update id="cartUpdate">
+		UPDATE cart
+		SET QTY = #{qty}
+		WHERE NO = #{no}
+	</update>
+</mapper>

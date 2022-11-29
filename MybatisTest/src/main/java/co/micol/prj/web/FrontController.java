@@ -28,6 +28,9 @@ import co.micol.prj.book.command.AjaxMainForm;
 import co.micol.prj.book.command.BookList;
 import co.micol.prj.book.command.bookInsert;
 import co.micol.prj.book.command.bookInsertForm;
+import co.micol.prj.cart.command.CartDelete;
+import co.micol.prj.cart.command.CartList;
+import co.micol.prj.cart.command.CartModify;
 import co.micol.prj.common.Command;
 import co.micol.prj.main.MainCommand;
 import co.micol.prj.member.command.AjaxIdCheck;
@@ -87,6 +90,11 @@ public class FrontController extends HttpServlet {
 		map.put("/replyList.do", new ReplyList());
 		map.put("/replyAdd.do", new ReplyAdd());
 		map.put("/replyDelete.do", new ReplyDelete());
+		
+		//장바구니
+		map.put("/cartList.do", new CartList());
+		map.put("/cartDelete.do", new CartDelete());
+		map.put("/cartModify.do", new CartModify());
 	}
 
 	// 요청을 분석하고 실행, 결과를 돌려주는 곳
