@@ -32,6 +32,12 @@ import co.micol.prj.cart.command.CartDelete;
 import co.micol.prj.cart.command.CartList;
 import co.micol.prj.cart.command.CartModify;
 import co.micol.prj.common.Command;
+import co.micol.prj.emp.command.EmpAdd;
+import co.micol.prj.emp.command.EmpDelete;
+import co.micol.prj.emp.command.EmpList;
+import co.micol.prj.emp.command.EmpModify;
+import co.micol.prj.emp.command.EmpSelect;
+import co.micol.prj.emp.command.JobList;
 import co.micol.prj.main.MainCommand;
 import co.micol.prj.member.command.AjaxIdCheck;
 import co.micol.prj.member.command.Logout;
@@ -95,6 +101,14 @@ public class FrontController extends HttpServlet {
 		map.put("/cartList.do", new CartList());
 		map.put("/cartDelete.do", new CartDelete());
 		map.put("/cartModify.do", new CartModify());
+		
+		// emp
+		map.put("/empList.do", new EmpList()); 
+		map.put("/empSelect.do", new EmpSelect());
+		map.put("/empAdd.do", new EmpAdd());
+		map.put("/empDelete.do", new EmpDelete());
+		map.put("/empModify.do", new EmpModify());
+		map.put("/jobList.do", new JobList());
 	}
 
 	// 요청을 분석하고 실행, 결과를 돌려주는 곳
